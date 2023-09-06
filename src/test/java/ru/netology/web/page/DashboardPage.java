@@ -18,10 +18,10 @@ public class DashboardPage {
         heading.shouldBe(visible);
     }
 
-    public int getCardBalance(int index){
-        var text = cards.get(index).getText();
-        return extractBalance(text);
-    }
+//    public int getCardBalance(int index){
+//        var text = cards.get(index).getText();
+//        return extractBalance(text);
+//    }
 
     public int getCardBalance(DataHelper.CardInfo cardInfo){
         String text;
@@ -30,7 +30,7 @@ public class DashboardPage {
     }
 
     public TransferPage selectCardToTransfer(DataHelper.CardInfo cardInfo){
-        cards.findBy(attribute("data-test-id", cardInfo.getCode())).$("button").click();
+        cards.findBy(attribute("data-test-id", cardInfo.getTestId())).$("button").click();
         return new TransferPage();
     }
 
